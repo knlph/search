@@ -1,51 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Random Fact Searcher</title>
+    <title>Bing Search Spam Test</title>
 </head>
 <body>
 
-<button id="start">Start 100 Searches</button>
+<button id="go">Open 100 Bing Searches</button>
 
 <script>
-const topics = [
-    "deep ocean creatures",
-    "black holes",
-    "ancient civilizations",
-    "space mysteries",
-    "dinosaurs",
-    "human brain facts",
-    "volcanoes",
-    "quantum physics",
-    "rare animals",
-    "lost cities",
-    "neutron stars",
-    "weather phenomena",
-    "unusual inventions",
-    "famous unsolved mysteries",
-    "plants with strange abilities",
-    "interesting math facts"
-];
+document.getElementById("go").addEventListener("click", () => {
 
-function randomTopic() {
-    return topics[Math.floor(Math.random() * topics.length)];
-}
+    const topics = [
+        "black holes",
+        "deep sea creatures",
+        "ancient civilizations",
+        "space mysteries",
+        "human brain facts",
+        "future technology",
+        "unsolved mysteries",
+        "interesting psychology",
+        "quantum physics",
+        "lost cities"
+    ];
 
-async function startSearching() {
     for (let i = 0; i < 100; i++) {
 
-        const query = encodeURIComponent(randomTopic());
+        const topic =
+            topics[Math.floor(Math.random() * topics.length)];
 
         window.open(
-            `https://www.google.com/search?q=${query}`,
-            '_blank'
+            `https://www.bing.com/search?q=${encodeURIComponent(topic)}`,
+            "_blank"
         );
-
-        await new Promise(resolve => setTimeout(resolve, 750));
     }
-}
 
-document.getElementById("start").addEventListener("click", startSearching);
+});
 </script>
 
 </body>
