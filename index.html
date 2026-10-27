@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Fact Searcher</title>
+</head>
+<body>
+
+<button id="start">Start 100 Searches</button>
+
+<script>
+const topics = [
+    "deep ocean creatures",
+    "black holes",
+    "ancient civilizations",
+    "space mysteries",
+    "dinosaurs",
+    "human brain facts",
+    "volcanoes",
+    "quantum physics",
+    "rare animals",
+    "lost cities",
+    "neutron stars",
+    "weather phenomena",
+    "unusual inventions",
+    "famous unsolved mysteries",
+    "plants with strange abilities",
+    "interesting math facts"
+];
+
+function randomTopic() {
+    return topics[Math.floor(Math.random() * topics.length)];
+}
+
+async function startSearching() {
+    for (let i = 0; i < 100; i++) {
+
+        const query = encodeURIComponent(randomTopic());
+
+        window.open(
+            `https://www.google.com/search?q=${query}`,
+            '_blank'
+        );
+
+        await new Promise(resolve => setTimeout(resolve, 750));
+    }
+}
+
+document.getElementById("start").addEventListener("click", startSearching);
+</script>
+
+</body>
+</html>
